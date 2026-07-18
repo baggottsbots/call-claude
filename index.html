@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- BASE:START (managed by Coding Agent — do not edit) -->
+<base href="/call-claude/">
+<!-- BASE:END -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+
+<!-- SEO Meta Tags -->
+<title>Landing Page - Jul 17, 2026</title>
+<meta property="og:title" content="Landing Page - Jul 17, 2026" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Landing Page - Jul 17, 2026" />
+<!-- End SEO Meta Tags -->
+<script data-lp-token-hydrate>
+(function(){try{
+  var slug="lp-mrpskddz-thon8";
+  var SK='lp_access_'+slug;
+  var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  var u=new URL(location.href);var found=null;var changed=false;
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
+  if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
+  if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
+}catch(e){}})();
+</script>
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://my.chatbees.io/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=5592');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='NCiRCdEv';
+  var apiBase='https://my.chatbees.io';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  function findPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    var phone=findPhone();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    var __pLoc=(document.documentElement.lang||navigator.language||'en');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,phone:phone||'',amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var sidP=urlParams.get('session_id');
+      if(sidP){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidP})}).catch(function(){});}catch(e){}}
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var pBtn=document.getElementById('lp-pay-success-btn');
+      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>
+<script data-cart>
+(function(){
+  var slug='NCiRCdEv';
+  var apiBase='https://my.chatbees.io';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findCartEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  var __realCart=function(arg){
+    var items, email='', customerName='', successUrl, cancelUrl, currency;
+    if(Array.isArray(arg)){items=arg;}
+    else if(arg&&typeof arg==='object'){
+      items=arg.items;email=arg.email||'';customerName=arg.name||arg.customerName||'';
+      successUrl=arg.successUrl;cancelUrl=arg.cancelUrl;currency=arg.currency;
+    }
+    if(!Array.isArray(items)||items.length===0){alert('No items in cart.');return Promise.reject('no_items');}
+    var cleanItems=[];var totalCents=0;
+    for(var i=0;i<items.length;i++){
+      var it=items[i];if(!it||typeof it!=='object'){alert('Invalid item at position '+i);return Promise.reject('bad_item');}
+      var nm=typeof it.name==='string'?it.name.trim():'';
+      if(!nm){alert('Item '+(i+1)+' is missing a name.');return Promise.reject('no_name');}
+      var amt=typeof it.amountCents==='number'?it.amountCents:(typeof it.amount==='number'?Math.round(it.amount*100):NaN);
+      if(!isFinite(amt)||amt<1){alert('Item "'+nm+'" needs a valid amount in cents.');return Promise.reject('bad_amount');}
+      var qty=(typeof it.quantity==='number'&&it.quantity>0)?Math.floor(it.quantity):1;
+      cleanItems.push({name:nm,description:it.description||'',amountCents:amt,quantity:qty});
+      totalCents+=amt*qty;
+    }
+    if(totalCents<50){alert('Cart total must be at least $0.50');return Promise.reject('total_too_low');}
+    if(!email)email=findCartEmail();
+    if(!customerName)customerName=findCartName();
+    var cartPhone=findCartPhone();
+    if(!email){var p=window.prompt('Enter your email for the receipt:','');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert('An email address is required to complete checkout.');return Promise.reject('no_email');}}
+    var successBase=window.location.href.split('?')[0];
+    var body={email:email,name:customerName,items:cleanItems,locale:(document.documentElement.lang||navigator.language||'en')};
+    if(currency)body.currency=currency;
+    if(cartPhone)body.phone=cartPhone;
+    body.successUrl=successUrl||(successBase+'?cart=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}');
+    body.cancelUrl=cancelUrl||(successBase+'?cart=cancelled');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/cart/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process checkout');throw new Error(d.error);}
+    });
+  };
+  try{Object.defineProperty(window,'__processCart',{value:__realCart,writable:false,configurable:false});}catch(e){window.__processCart=__realCart;}
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('cart')==='success'){
+      var sidC=urlParams.get('session_id');
+      if(sidC){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidC})}).catch(function(){});}catch(e){}}
+      if(document.getElementById('payment-success-overlay')||document.getElementById('donation-success-overlay')||document.getElementById('cart-success-overlay'))return;
+      var overlay=document.createElement('div');overlay.id='cart-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||'Thank you for your order.';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Order Confirmed!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-cart-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var cBtn=document.getElementById('lp-cart-success-btn');
+      if(cBtn){cBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-gray-100">
+
+    <!-- ============================================================================ -->
+    <!-- NAVIGATION: Clean header with logo and contact CTA                          -->
+    <!-- Features: Dark background, sticky positioning, responsive layout             -->
+    <!-- ============================================================================ -->
+    <nav data-section="navbar" class="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-orange-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">JC</span>
+                </div>
+                <span class="text-xl font-bold text-white hidden sm:inline">JustCallClaude</span>
+            </div>
+            <a href="tel:+18449845063" class="inline-flex items-center gap-2 px-4 sm:px-6 py-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors duration-200">
+                <span class="hidden sm:inline">Call Now</span>
+                <span class="sm:hidden">Call</span>
+                <span class="text-sm">+1 (844) 984-5063</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ============================================================================ -->
+    <!-- HERO SECTION: Main banner with background image, headline, and CTA           -->
+    <!-- Features: Full-width image backdrop, gradient overlay, centered content      -->
+    <!-- Mobile Padding: Safe horizontal margins prevent text clipping at 375px       -->
+    <!-- ============================================================================ -->
+    <section data-section="hero" class="relative w-full flex flex-col overflow-hidden bg-black">
+        <!-- Hero Image at Top -->
+        <img 
+            src="https://paymegpt.com/api/landing-pages/images/coding-agent-assets%2F2%2F1784344071223_0ED4FEAC-83E8-4BF9-BB82-00571C725612.webp" 
+            alt="AI-powered call management dashboard" 
+            class="w-full h-auto"
+        />
+
+        <!-- Hero Content -->
+        <div class="hero-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                AI-Powered Call <span class="text-orange-500">Management</span> Made Simple
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                JustCallClaude handles your incoming calls with intelligent AI agents. Never miss a lead, appointment, or customer inquiry again.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:+18449845063" class="glow-button w-full sm:w-auto px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg rounded-lg transition-all duration-200 inline-flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773c.058.3.102.605.102.924v1.902c0 .419.058.83.169 1.227l1.902-1.113a1 1 0 011.075.147l3.122 3.122a1 1 0 01.242 1.025l-.773 1.548a1 1 0 01-1.06.54H5.159a1 1 0 01-.986-.836l-.74-4.435A1 1 0 014.598 9.12H3a1 1 0 01-1-1V3z"/>
+                    </svg>
+                    Call +1 (844) 984-5063
+                </a>
+                <a href="#features" class="w-full sm:w-auto px-8 py-4 bg-black hover:bg-slate-900 text-white font-bold text-lg rounded-lg border border-orange-500 transition-all duration-200">
+                    Learn More
+                </a>
+            </div>
+            <p class="text-sm text-gray-400 mt-8">Available 24/7 • Instant Setup • No Credit Card Required</p>
+        </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- FEATURES SECTION: Core capabilities displayed in a responsive grid           -->
+    <!-- Features: 3-column layout on desktop, single column on mobile                -->
+    <!-- ============================================================================ -->
+    <section data-section="features" id="features" class="relative z-10 py-16 sm:py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                    Why Choose <span class="gradient-text-orange">JustCallClaude</span>?
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Intelligent call handling that works harder than your team, 24 hours a day.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Feature 1 -->
+                <div class="dark-card-orange p-6 sm:p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Instant Call Handling</h3>
+                    <p class="text-gray-400">
+                        Answer calls instantly with AI agents that understand context, handle transfers, and provide accurate information in real-time.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="dark-card-orange p-6 sm:p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Lead Capture & Logging</h3>
+                    <p class="text-gray-400">
+                        Every call is automatically logged with caller information, conversation summaries, and follow-up details sent to your CRM.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="dark-card-orange p-6 sm:p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">24/7 Availability</h3>
+                    <p class="text-gray-400">
+                        Never let a call go unanswered. Your AI agent works around the clock, handling calls during business hours and after.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="dark-card-orange p-6 sm:p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Smart Routing</h3>
+                    <p class="text-gray-400">
+                        Calls are intelligently routed to the right department or team member based on caller needs and availability.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="dark-card-orange p-6 sm:p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Fully Customizable</h3>
+                    <p class="text-gray-400">
+                        Train your AI agent with your business information, scripts, and knowledge base for perfect brand alignment.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="dark-card-orange p-6 sm:p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Real-Time Analytics</h3>
+                    <p class="text-gray-400">
+                        Track call volume, duration, resolution rates, and customer satisfaction metrics on a live dashboard.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- BENEFITS SECTION: Key value propositions with icons and descriptions         -->
+    <!-- Features: Two-column layout alternating image and text                       -->
+    <!-- ============================================================================ -->
+    <section data-section="benefits" class="py-16 sm:py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-12 sm:space-y-16">
+                <!-- Benefit 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 md:order-1">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-orange-400 mb-4">
+                            Reduce Call Costs by 70%
+                        </h3>
+                        <p class="text-gray-400 text-lg mb-6">
+                            Replace expensive call center staff with intelligent AI agents that handle routine inquiries, appointment bookings, and customer support without human intervention.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                No hourly wages or benefits
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Handles unlimited concurrent calls
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Scales with your business instantly
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <div class="bg-gradient-to-br from-orange-600/20 to-orange-900/20 rounded-xl p-8 border border-orange-500/20">
+                            <div class="text-5xl font-bold text-orange-400 mb-2">70%</div>
+                            <p class="text-gray-400">Cost reduction vs. traditional support teams</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-orange-400 mb-4">
+                            Never Miss a Lead Again
+                        </h3>
+                        <p class="text-gray-400 text-lg mb-6">
+                            Every incoming call is answered professionally by your AI agent. Leads are captured automatically, qualified in real-time, and routed to your sales team with full context.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Automatic lead qualification
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                CRM integration and logging
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Instant notifications to your team
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="bg-gradient-to-br from-orange-600/20 to-orange-900/20 rounded-xl p-8 border border-orange-500/20">
+                            <div class="text-5xl font-bold text-orange-400 mb-2">100%</div>
+                            <p class="text-gray-400">Call answer rate with AI agent</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="bg-gradient-to-br from-orange-600/20 to-orange-900/20 rounded-xl p-8 border border-orange-500/20">
+                            <div class="text-5xl font-bold text-orange-400 mb-2">Minutes</div>
+                            <p class="text-gray-400">Setup time to go live</p>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-orange-400 mb-4">
+                            Live in Minutes, Not Weeks
+                        </h3>
+                        <p class="text-gray-400 text-lg mb-6">
+                            No complex setup or technical knowledge required. Forward your business phone number to our system and start receiving AI-powered call handling immediately.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Simple phone number forwarding
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                No code or technical skills needed
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Dedicated onboarding support
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- TESTIMONIALS SECTION: Social proof from satisfied customers                  -->
+    <!-- Features: Three-column testimonial cards with ratings and quotes             -->
+    <!-- ============================================================================ -->
+    <section data-section="testimonials" class="py-16 sm:py-24 bg-gradient-to-b from-black to-slate-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                    Loved by <span class="gradient-text-orange">Businesses Everywhere</span>
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    See how JustCallClaude is transforming customer communication
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Testimonial 1 -->
+                <div class="dark-card-black p-6 sm:p-8 rounded-xl border border-orange-500/20 hover:border-orange-500/50">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-orange-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "JustCallClaude has been a game-changer for our real estate business. We've captured 40% more leads and our response time is instant. Highly recommend!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full"></div>
+                        <div>
+                            <p class="text-white font-semibold">Sarah Mitchell</p>
+                            <p class="text-gray-400 text-sm">Real Estate Agent</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="dark-card-black p-6 sm:p-8 rounded-xl border border-orange-500/20 hover:border-orange-500/50">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-orange-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "We cut our support costs in half and improved customer satisfaction. The AI handles 80% of our calls perfectly. Incredible ROI."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full"></div>
+                        <div>
+                            <p class="text-white font-semibold">Marcus Johnson</p>
+                            <p class="text-gray-400 text-sm">Support Manager, Tech Startup</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="dark-card-black p-6 sm:p-8 rounded-xl border border-orange-500/20 hover:border-orange-500/50">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-orange-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "Setup was so easy. Within 10 minutes we were taking calls. The customer experience is smooth and professional. Worth every penny."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full"></div>
+                        <div>
+                            <p class="text-white font-semibold">Amanda Chen</p>
+                            <p class="text-gray-400 text-sm">Salon Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- PRICING SECTION: Transparent pricing tiers with features and CTAs            -->
+    <!-- Features: Three pricing options, highlighted recommended plan                -->
+    <!-- ============================================================================ -->
+    <section data-section="pricing" id="pricing" class="py-16 sm:py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                    Simple, Transparent <span style="background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Pricing</span>
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    Choose the plan that fits your business needs
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-6">
+                <!-- Starter Plan -->
+                <div class="dark-card p-6 sm:p-8 rounded-xl flex flex-col">
+                    <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
+                    <p class="text-gray-400 mb-6">Perfect for small businesses</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-white">$99</span>
+                        <span class="text-gray-400">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-grow">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Up to 500 calls/month
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Basic AI agent
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Call recording & logs
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Email support
+                        </li>
+                    </ul>
+                    <a href="tel:+18449845063" class="w-full px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-lg border border-orange-500/30 transition-colors duration-200 text-center">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Professional Plan (Highlighted) -->
+                <div class="dark-card p-6 sm:p-8 rounded-xl flex flex-col ring-2 ring-orange-500 relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        Recommended
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+                    <p class="text-gray-400 mb-6">For growing teams</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-white">$299</span>
+                        <span class="text-gray-400">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-grow">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Up to 5,000 calls/month
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Advanced AI with learning
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            CRM integration
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Priority support
+                        </li>
+                    </ul>
+                    <a href="tel:+18449845063" class="w-full px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors duration-200 text-center glow-button">
+                        Start Free Trial
+                    </a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="dark-card p-6 sm:p-8 rounded-xl flex flex-col">
+                    <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
+                    <p class="text-gray-400 mb-6">For large organizations</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-white">Custom</span>
+                        <span class="text-gray-400">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-grow">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Unlimited calls
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Multiple AI agents
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Custom integrations
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Dedicated account manager
+                        </li>
+                    </ul>
+                    <a href="tel:+18449845063" class="w-full px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-lg border border-orange-500/30 transition-colors duration-200 text-center">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-center text-gray-400 text-sm mt-8">
+                All plans include 14-day free trial. No credit card required.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- CTA SECTION: Final call-to-action with phone number and value proposition    -->
+    <!-- Features: Large prominent button, gradient background, urgency messaging     -->
+    <!-- ============================================================================ -->
+    <section data-section="cta" class="py-16 sm:py-24 bg-gradient-to-r from-black via-slate-900 to-black relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your <span class="text-orange-500">Call Management</span>?
+            </h2>
+            <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Join hundreds of businesses already using JustCallClaude to capture more leads, reduce costs, and improve customer satisfaction.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <a href="tel:+18449845063" class="glow-button w-full sm:w-auto px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg rounded-lg transition-all duration-200 inline-flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773c.058.3.102.605.102.924v1.902c0 .419.058.83.169 1.227l1.902-1.113a1 1 0 011.075.147l3.122 3.122a1 1 0 01.242 1.025l-.773 1.548a1 1 0 01-1.06.54H5.159a1 1 0 01-.986-.836l-.74-4.435A1 1 0 014.598 9.12H3a1 1 0 01-1-1V3z"/>
+                    </svg>
+                    Call Now: +1 (844) 984-5063
+                </a>
+            </div>
+
+            <p class="text-gray-400 text-sm">
+                Available 24/7 • Instant Setup • 14-Day Free Trial
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- FOOTER: Navigation, contact info, and legal links                            -->
+    <!-- Features: Dark background, organized sections, copyright notice              -->
+    <!-- ============================================================================ -->
+    <footer data-section="footer" class="bg-black border-t border-orange-900/30 py-12 sm:py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">JC</span>
+                        </div>
+                        <span class="text-lg font-bold text-white">JustCallClaude</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        AI-powered call management for modern businesses.
+                    </p>
+                </div>
+
+                <!-- Product -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-orange-400 transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-orange-400 transition-colors">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-400 transition-colors">Security</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-orange-400 transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-400 transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <a href="tel:+18449845063" class="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors mb-3">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773c.058.3.102.605.102.924v1.902c0 .419.058.83.169 1.227l1.902-1.113a1 1 0 011.075.147l3.122 3.122a1 1 0 01.242 1.025l-.773 1.548a1 1 0 01-1.06.54H5.159a1 1 0 01-.986-.836l-.74-4.435A1 1 0 014.598 9.12H3a1 1 0 01-1-1V3z"/>
+                        </svg>
+                        +1 (844) 984-5063
+                    </a>
+                    <p class="text-gray-400 text-sm">Available 24/7</p>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-orange-900/30 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">
+                    © 2026 JustCallClaude. All rights reserved.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SMOOTH SCROLL BEHAVIOR ===== -->
+    <!-- Enables smooth scrolling for anchor links throughout the page -->
+    
+  <script src="script.js"></script>
+</body>
+</html>
