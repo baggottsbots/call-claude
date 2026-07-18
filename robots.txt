@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://baggottsbots.github.io/call-claude/sitemap.xml
+Sitemap: https://www.justcallclaude.com/sitemap.xml
